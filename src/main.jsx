@@ -3,18 +3,23 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
-
+import Login from './routes/PublicRoutes/Login'
+import Register from './routes/PublicRoutes/Register'
+import ErrorPage from './routes/ErrorPage'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+    errorElement: <ErrorPage/>,
     children:[
       {
-        
+        path: '/login',
+        element: <Login/>
       },
       {
-
+        path: '/register',
+        element: <Register/>
       }
     ]
 
