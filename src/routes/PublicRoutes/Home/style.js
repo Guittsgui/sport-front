@@ -85,7 +85,21 @@ export const ThirdBanner = styled.div`
     justify-content: center;
     letter-spacing: 2px;
     text-shadow: 2px 2px 2px black;
+
     h1{
         font-size: 35px;
+    }
+`;
+
+export const FaqContainer = styled.div`
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        color: #384e92;
+        margin: 30px;
+        border-bottom: 1px solid #384e92;
+        padding-bottom: 10px;
     }
 `;

@@ -1,5 +1,7 @@
 import * as S from './style'
 import PlansCotainer from './../../../components/PlansContainer'
+import {Button} from './../../../components/button'
+import FaqContainer from '../../../components/FaqContainer'
 
 const Home = () => {
 
@@ -25,6 +27,11 @@ const Home = () => {
         <S.ThirdBanner>
             <h1> Participe de provas e supere seus Limites.</h1>
         </S.ThirdBanner>
+        <S.FaqContainer>
+            <h1> Perguntas Frequentes</h1>
+            <FaqContainer/>
+            <FaqContainer/>
+        </S.FaqContainer>
     </S.Container>
 }
 
