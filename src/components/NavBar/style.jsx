@@ -5,7 +5,7 @@ export const Container = styled.nav`
     height: 120px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
 
     a{
@@ -23,19 +23,26 @@ export const Container = styled.nav`
             padding-bottom: 10px;
         }
     }  
-   
-    
-    .active{
-        color: geren;
-    }
+
+    .logo{
+        color: #c7c7c7;
+        border: 1px solid #c7c7c7;
+        padding: 15px;
+        margin-left: 50px;
+        &:hover{
+            color: #c7c7c7;
+
+        }
+    }  
 
     ul{
         display: flex;
         gap: 40px;
         font-size: 25px;
-    }
-    li{
-        list-style: none;
+        margin-right: 50px;
+        li{
+            list-style: none;
+        }
     }
     
     `;

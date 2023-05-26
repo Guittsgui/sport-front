@@ -15,5 +15,14 @@ export const Container = styled.div`
         color: #4861a0;
         border-bottom: 1px solid #4861a0;
         padding-bottom: 5px;
+        margin-bottom: 40px;
+    }
+    a{
+        font-size: 10px;
+        margin-top: 15px;
+        color: #6178b8 ;
+        &:hover{
+            color: #abbeff
+        }
     }
 `;
