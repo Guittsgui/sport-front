@@ -1,4 +1,5 @@
 import * as S from './style'
+import PlansCotainer from './../../../components/PlansContainer'
 
 const Home = () => {
 
@@ -11,8 +12,19 @@ const Home = () => {
             <p> Planilhas personalizadas por profissionais, com contato 24 horas por dia. </p>
         </S.TextContainer>
         <S.SecondBanner>
-            <h1> Evolua e supere seus limites! Atividade física salva Vidas! </h1>
+            <h1> Aqui a evolução é constante! Atividade física salva Vidas! </h1>
         </S.SecondBanner>
+        <S.PlansContainer>
+            <h1> Nossos Planos: </h1>
+            <div className="plansArea">
+                <PlansCotainer title={'Bronze'}/>
+                <PlansCotainer title={'Silver'}/>
+                <PlansCotainer title={'Gold'}/>
+            </div>
+        </S.PlansContainer>
+        <S.ThirdBanner>
+            <h1> Participe de provas e supere seus Limites.</h1>
+        </S.ThirdBanner>
     </S.Container>
 }
 
