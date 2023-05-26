@@ -35,6 +35,7 @@ const Register = () => {
         <FormContainer title="Register">
             <FormGroup>
                 <Input type='text' 
+                autoFocus
                 placeholder='Insira o seu Nome Completo'
                 value={name}
                 onChange={handleChangeName}/>

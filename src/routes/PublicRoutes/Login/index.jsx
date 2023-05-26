@@ -11,17 +11,28 @@ const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const [error, setError] = useState(false)
 
     function handleSubmitForm(event){
         event.preventDefault()
+        setEmail('')
+        setPassword('')
+
+        if( email === 'a' && password === 'a'){
+            alert('logou')
+        }else{
+            setError(true)
+        }
         
     }
 
     function handleEmailChange(event){
+        setError(false)
         setEmail(event.target.value)
     }
 
     function handlePasswordChange(event){
+        setError(false)
         setPassword(event.target.value)
     }
 
@@ -30,6 +41,7 @@ const Login = () => {
         <FormContainer title="Login">
             <FormGroup>
                 <Input type="email" 
+                autoFocus
                 placeholder='Informe seu E-mail'
                 value={email}
                 onChange={handleEmailChange}/>
@@ -41,6 +53,8 @@ const Login = () => {
                 value={password}
                 onChange={handlePasswordChange}/>
             </FormGroup>
+
+            {error && <p className='danger'> Login ou Senha Inválidos. </p>}
 
             <Button onClick={handleSubmitForm}> Login </Button>
 
