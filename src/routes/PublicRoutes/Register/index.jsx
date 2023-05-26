@@ -5,6 +5,7 @@ import { Button } from '../../../components/button'
 import {Link} from 'react-router-dom'
 import { useState } from 'react'
 import FormGroup from '../../../components/FormGroup'
+import { isEmailValid } from '../../../utils/validateFields'
 const Register = () => {
 
     const [name, setName] = useState('')
@@ -14,8 +15,7 @@ const Register = () => {
 
 
     function handleSubmitForm(event){
-        event.preventDefault()
-        alert('cadastrou')
+        event.preventDefault()      
     }
 
     function handleChangeName(event){
