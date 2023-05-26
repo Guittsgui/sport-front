@@ -6,12 +6,17 @@ import {Link} from 'react-router-dom'
 
 const Login = () => {
 
+    function handleSubmitForm(event){
+        event.preventDefault()
+        alert('enviou')
+    }
+
     return <S.Container>
         
         <FormContainer title="Login">
             <Input type="email" placeholder='Informe seu E-mail'/>
             <Input type="password" placeholder='Informe sua Senha'/>
-            <Button> Login </Button>
+            <Button onClick={handleSubmitForm}> Login </Button>
             <Link> Esqeuceu sua Senha ? Clique Aqui </Link>
         </FormContainer>
         
