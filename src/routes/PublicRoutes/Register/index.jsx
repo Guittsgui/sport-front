@@ -4,7 +4,7 @@ import {Input} from '../../../components/input'
 import { Button } from '../../../components/button'
 import {Link} from 'react-router-dom'
 import { useState } from 'react'
-
+import FormGroup from '../../../components/FormGroup'
 const Register = () => {
 
     const [name, setName] = useState('')
@@ -33,25 +33,33 @@ const Register = () => {
 
     return <S.Container>
         <FormContainer title="Register">
-            <Input type='text' 
-            placeholder='Insira o seu Nome Completo'
-            value={name}
-            onChange={handleChangeName}/>
+            <FormGroup>
+                <Input type='text' 
+                placeholder='Insira o seu Nome Completo'
+                value={name}
+                onChange={handleChangeName}/>
+            </FormGroup>
 
-            <Input type='email' 
-            placeholder='Insira o seu Email'
-            value={email}
-            onChange={handleChangeEmail}/>
+            <FormGroup>
+                <Input type='email' 
+                placeholder='Insira o seu Email'
+                value={email}
+                onChange={handleChangeEmail}/>
+            </FormGroup>
+        
+            <FormGroup>
+                <Input type='password' 
+                placeholder='Insira a sua Senha'
+                value={password}
+                onChange={handleChangePassword}/>
+            </FormGroup>
 
-            <Input type='password' 
-            placeholder='Insira a sua Senha'
-            value={password}
-            onChange={handleChangePassword}/>
-
-            <Input type='password' 
-            placeholder='Repita a sua Senha'
-            value={confirmPassword}
-            onChange={handleChangeConfirmPassword}/>
+            <FormGroup>
+                <Input type='password' 
+                placeholder='Repita a sua Senha'
+                value={confirmPassword}
+                onChange={handleChangeConfirmPassword}/>
+            </FormGroup>        
 
             <Button onClick={handleSubmitForm}> Cadastrar </Button>
             <Link to="/login"> Já é cadastrado? Clique Aqui para Logar</Link>

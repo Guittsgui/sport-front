@@ -4,6 +4,7 @@ import {Input} from '../../../components/input'
 import { Button } from '../../../components/button'
 import {Link} from 'react-router-dom'
 import { useState } from 'react'
+import FormGroup from './../../../components/FormGroup'
 
 const Login = () => {
 
@@ -27,15 +28,19 @@ const Login = () => {
     return <S.Container>
         
         <FormContainer title="Login">
-            <Input type="email" 
-            placeholder='Informe seu E-mail'
-            value={email}
-            onChange={handleEmailChange}/>
+            <FormGroup>
+                <Input type="email" 
+                placeholder='Informe seu E-mail'
+                value={email}
+                onChange={handleEmailChange}/>
+            </FormGroup>
 
-            <Input type="password" 
-            placeholder='Informe sua Senha'
-            value={password}
-            onChange={handlePasswordChange}/>
+            <FormGroup>
+                <Input type="password" 
+                placeholder='Informe sua Senha'
+                value={password}
+                onChange={handlePasswordChange}/>
+            </FormGroup>
 
             <Button onClick={handleSubmitForm}> Login </Button>
 
