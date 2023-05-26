@@ -10,7 +10,7 @@ const Footer = () =>{
         <p> Projeto feito com fins de Estudos.</p>
         <p className='name'> Dev: Guilherme Tavares </p>
         <ul>
-            <li> <Link> <BsGithub size={30}/> </Link> </li>
+            <li> <Link to=""> <BsGithub size={30}/> </Link> </li>
             <li> <Link> <BsLinkedin size={30}/> </Link> </li>
             <li> <Link> <BsWhatsapp size={30}/> </Link> </li>
             <li> <Link> <BsInstagram size={30}/> </Link></li>

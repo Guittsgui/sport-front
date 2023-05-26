@@ -1,10 +1,10 @@
 import * as S from './style'
-
+import FormContainer from './../../../components/FormContainer'
 
 const Register = () => {
 
     return <S.Container>
-        <h1> Register </h1>
+        <FormContainer title="Register"/>
     </S.Container>
 }
 

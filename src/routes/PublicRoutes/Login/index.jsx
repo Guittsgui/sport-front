@@ -1,10 +1,14 @@
 import * as S from './style'
-
+import FormContainer from '../../../components/FormContainer'
 
 const Login = () => {
 
     return <S.Container>
-        <h1> Login Page </h1>
+        
+        <FormContainer title="Login"/>
+
+        
+        
     </S.Container>
 }
 
