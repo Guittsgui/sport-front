@@ -16,7 +16,9 @@ const Register = () => {
 
     function handleSubmitForm(event){
         event.preventDefault()   
+        console.log(password)
         console.log(erros)
+        console.log(confirmPassword)
     }
 
     function handleChangeName(event){
@@ -33,7 +35,7 @@ const Register = () => {
     function handleChangeEmail(event){
         setEmail(event.target.value)
         if(!isEmailValid(event.target.value)){
-            if(!erros.some((err) => err.field === 'email')){
+            if(!erros.some((err) => giterr.field === 'email')){
                 setErros((prev) => [...prev, {field: 'email', msg: 'Informe um Email válido.'}])
             }
         }else{
@@ -45,7 +47,7 @@ const Register = () => {
         setPassword(event.target.value)
         if(!isPasswordValid(event.target.value)){
             if(!erros.some((err)=> err.field === 'password')){
-                setErros((prev) => [...prev, {field: 'password', msg: 'Nome Inválido - min 04caracteres.'}])
+                setErros((prev) => [...prev, {field: 'password', msg: 'Senha inválida - min 8 caracteres - sem espaço '}])
             }
         }else{
             setErros((prev) => prev.filter((err) => err.field !== 'password')) 
@@ -54,8 +56,8 @@ const Register = () => {
 
     function handleChangeConfirmPassword(event){
         setConfirmPassword(event.target.value)
-        
-        if(!isConfirmedPasswordValid(password, confirmPassword)){
+
+        if(!isConfirmedPasswordValid(password, event.target.value)){
             if(!erros.some((err) => err.field === 'confirmPassword')){
                 setErros((prev) => [...prev, {field: 'confirmPassword', msg: 'Senhas diferentes.'}])
             }else{
