@@ -3,7 +3,7 @@ import {useState} from 'react'
 import {AiOutlineArrowDown, AiOutlineArrowUp} from 'react-icons/ai'
 
 
-const FaqContainer = () => {
+const FaqContainer = ({question}) => {
 
     const [clicked, setClicked] = useState(false)
 
@@ -13,12 +13,12 @@ const FaqContainer = () => {
 
     return <S.Container>
         <S.Header onClick={handleOpenFaq}>
-            <p> Preciso ser atleta para participar ? </p>
+            <p> {question.question} </p>
             {!clicked && <AiOutlineArrowDown size={30}/>}
             {clicked && <AiOutlineArrowUp size={30}/>}
         </S.Header>
         <S.Body clicked={clicked}>
-            <p> Não, nosso time está pronto para recepcionar desde atletas de ponta até quem nunca praticou nenhuma atividade física. </p>
+            <p> {question.response} </p>
         </S.Body>
     </S.Container>
 }

@@ -2,6 +2,7 @@ import * as S from './style'
 import PlansCotainer from './../../../components/PlansContainer'
 import {Button} from './../../../components/button'
 import FaqContainer from '../../../components/FaqContainer'
+import { faqQuestionsList } from '../../../utils/faqQuestions'
 
 const Home = () => {
 
@@ -29,8 +30,9 @@ const Home = () => {
         </S.ThirdBanner>
         <S.FaqContainer>
             <h1> Perguntas Frequentes</h1>
-            <FaqContainer/>
-            <FaqContainer/>
+            {faqQuestionsList.map((question)=>(
+                <FaqContainer key={question.id} question={question}/>
+            ))}
         </S.FaqContainer>
     </S.Container>
 }

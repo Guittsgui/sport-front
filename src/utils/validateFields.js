@@ -1,18 +1,31 @@
 
 export const isEmailValid = (email) =>{
     const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
-    
-    if(regex.test(email)){
+    return regex.test(email)
+}
+
+export const isNameValid = (name)=>{
+    if(name.lenght > 3){
+        return false
+    }else{
+        return true
+    }
+}
+
+export const isPasswordValid = (password , confirmPassword) =>{
+    const passwordSplited = password.split(' ')
+    console.log(passwordSplited.length)
+    if(passwordSplited.length > 1 ||password.length < 8){
+        return false
+    }else{
+        return true
+    }
+}
+
+export const isConfirmedPasswordValid = (password , confirmPassword)=>{
+    if ( password === confirmPassword){
         return true
     }else{
         return false
     }
-}
-
-export const isNameValid = (name)=>{
-
-}
-
-export const isPasswordValid = (password) =>{
-    
 }

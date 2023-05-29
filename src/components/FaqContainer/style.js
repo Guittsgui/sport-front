@@ -30,6 +30,7 @@ export const Body = styled.div`
     display: ${({clicked}) => clicked ? 'flex' : 'none'};
     align-items: center;
     text-align: center;
+    justify-content: center;
     padding: 10px;
     border: 2px solid #8793e0; ;
     border-top: none;
