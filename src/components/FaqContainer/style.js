@@ -12,7 +12,8 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     gap: 30px;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0px 30px;
     color: #8793e0;
     font-weight: bolder;
     letter-spacing: .5px;

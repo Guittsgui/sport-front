@@ -3,6 +3,7 @@ import PlansCotainer from './../../../components/PlansContainer'
 import {Button} from './../../../components/button'
 import FaqContainer from '../../../components/FaqContainer'
 import { faqQuestionsList } from '../../../utils/faqQuestions'
+import * as plans from '../../../utils/pricePlans'
 
 const Home = () => {
 
@@ -20,9 +21,9 @@ const Home = () => {
         <S.PlansContainer>
             <h1> Nossos Planos: </h1>
             <div className="plansArea">
-                <PlansCotainer title={'Bronze'}/>
-                <PlansCotainer title={'Silver'}/>
-                <PlansCotainer title={'Gold'}/>
+                <PlansCotainer plan={plans.bronze}/>
+                <PlansCotainer plan={plans.silver}/>
+                <PlansCotainer plan={plans.gold}/>
             </div>
         </S.PlansContainer>
         <S.ThirdBanner>
