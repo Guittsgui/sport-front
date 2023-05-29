@@ -5,6 +5,7 @@ import { Button } from '../../../components/button'
 import {Link} from 'react-router-dom'
 import { useState } from 'react'
 import FormGroup from './../../../components/FormGroup'
+import { isEmailValid } from '../../../utils/validateFields'
 
 const Login = () => {
 
@@ -22,8 +23,7 @@ const Login = () => {
             alert('logou')
         }else{
             setError(true)
-        }
-        
+        }     
     }
 
     function handleEmailChange(event){
@@ -42,21 +42,24 @@ const Login = () => {
             <FormGroup>
                 <Input type="email" 
                 autoFocus
-                placeholder='Informe seu E-mail'
+                placeholder='Informe seu E-mail *'
                 value={email}
                 onChange={handleEmailChange}/>
             </FormGroup>
 
             <FormGroup>
                 <Input type="password" 
-                placeholder='Informe sua Senha'
+                placeholder='Informe sua Senha *'
                 value={password}
                 onChange={handlePasswordChange}/>
             </FormGroup>
 
             {error && <p className='danger'> Login ou Senha Inválidos. </p>}
 
-            <Button onClick={handleSubmitForm}> Login </Button>
+            <Button onClick={handleSubmitForm}
+            disabled={!password || !isEmailValid(email)}>
+                 Login 
+            </Button>
 
             <Link> Esqeuceu sua Senha ? Clique Aqui </Link>
         </FormContainer>

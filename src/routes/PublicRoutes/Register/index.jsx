@@ -38,33 +38,36 @@ const Register = () => {
             <FormGroup>
                 <Input type='text' 
                 autoFocus
-                placeholder='Insira o seu Nome Completo'
+                placeholder='Insira o seu Nome Completo *'
                 value={name}
                 onChange={handleChangeName}/>
             </FormGroup>
 
             <FormGroup>
                 <Input type='email' 
-                placeholder='Insira o seu Email'
+                placeholder='Insira o seu Email *'
                 value={email}
                 onChange={handleChangeEmail}/>
             </FormGroup>
         
             <FormGroup>
                 <Input type='password' 
-                placeholder='Insira a sua Senha'
+                placeholder='Insira a sua Senha *'
                 value={password}
                 onChange={handleChangePassword}/>
             </FormGroup>
 
             <FormGroup>
                 <Input type='password' 
-                placeholder='Repita a sua Senha'
+                placeholder='Repita a sua Senha *'
                 value={confirmPassword}
                 onChange={handleChangeConfirmPassword}/>
             </FormGroup>        
 
-            <Button onClick={handleSubmitForm}> Cadastrar </Button>
+            <Button onClick={handleSubmitForm} 
+            disabled={!name}> 
+                Cadastrar 
+            </Button>
             <Link to="/login"> Já é cadastrado? Clique Aqui para Logar</Link>
 
         </FormContainer>
