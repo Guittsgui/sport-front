@@ -5,7 +5,7 @@ export const isEmailValid = (email) =>{
 }
 
 export const isNameValid = (name)=>{
-    if(name.lenght > 3){
+    if(name.length <= 3){
         return false
     }else{
         return true
@@ -14,7 +14,6 @@ export const isNameValid = (name)=>{
 
 export const isPasswordValid = (password , confirmPassword) =>{
     const passwordSplited = password.split(' ')
-    console.log(passwordSplited.length)
     if(passwordSplited.length > 1 ||password.length < 8){
         return false
     }else{
@@ -23,7 +22,7 @@ export const isPasswordValid = (password , confirmPassword) =>{
 }
 
 export const isConfirmedPasswordValid = (password , confirmPassword)=>{
-    if ( password === confirmPassword){
+    if (password === confirmPassword){
         return true
     }else{
         return false

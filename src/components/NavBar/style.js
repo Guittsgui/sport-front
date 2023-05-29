@@ -25,14 +25,25 @@ export const Container = styled.nav`
     }  
 
     .logo{
-        color: #c7c7c7;
-        border: 1px solid #c7c7c7;
-        padding: 15px;
-        margin-left: 50px;
-        &:hover{
-            color: #c7c7c7;
-
-        }
+      padding: 0 40px;
+      font-style: italic;
+      &:hover{
+          border-bottom: none;
+          padding-bottom: 0px;
+          .training{
+            color: #5467ae;
+          }
+      }
+      .my{
+          font-size: 40px;
+      }
+      .training{
+        font-size: 25px;
+        color: #001f5c;
+      }
+      .app{
+          font-size: 30px;
+      }
     }  
 
     ul{

@@ -9,5 +9,6 @@ export const Container = styled.div`
     span{
         color: red;
         letter-spacing: 1px;
+        font-size: 12px;
     }
 `;

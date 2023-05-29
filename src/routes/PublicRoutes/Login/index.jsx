@@ -18,7 +18,6 @@ const Login = () => {
         event.preventDefault()
         setEmail('')
         setPassword('')
-
         if( email === 'a' && password === 'a'){
             alert('logou')
         }else{
