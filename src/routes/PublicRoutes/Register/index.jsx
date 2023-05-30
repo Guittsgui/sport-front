@@ -15,7 +15,9 @@ const Register = () => {
     const [erros, setErros] = useState([])
 
     function handleSubmitForm(event){
-        event.preventDefault()   
+        event.preventDefault() 
+        setPassword('')
+        setConfirmPassword('')  
         if( password !== confirmPassword){
             alert('Senhas incompatíveis')
             return
