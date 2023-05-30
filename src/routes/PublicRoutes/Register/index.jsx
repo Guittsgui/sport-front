@@ -5,7 +5,11 @@ import { Button } from '../../../components/button'
 import {Link} from 'react-router-dom'
 import { useState } from 'react'
 import FormGroup from '../../../components/FormGroup'
-import { isEmailValid , isNameValid , isPasswordValid , isConfirmedPasswordValid} from '../../../utils/validateFields'
+import { isEmailValid , isNameValid , isPasswordValid } from '../../../utils/validateFields'
+import { api } from '../../../api'
+
+
+
 const Register = () => {
 
     const [name, setName] = useState('')
@@ -22,6 +26,12 @@ const Register = () => {
             alert('Senhas incompatíveis')
             return
         }
+        const newUser = {
+            name: name,
+            email: email,
+            password: password
+        }
+        api.addNewUser(newUser)
         
     }
 
