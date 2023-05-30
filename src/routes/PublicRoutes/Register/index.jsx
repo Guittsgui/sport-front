@@ -18,7 +18,7 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [erros, setErros] = useState([])
 
-    function handleSubmitForm(event){
+    async function handleSubmitForm(event){
         event.preventDefault() 
         setPassword('')
         setConfirmPassword('')  
@@ -31,7 +31,8 @@ const Register = () => {
             email: email,
             password: password
         }
-        api.addNewUser(newUser)
+        const json = await api.addNewUser(newUser)
+        console.log(json)
         
     }
 
