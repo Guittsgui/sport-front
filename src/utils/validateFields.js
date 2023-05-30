@@ -22,8 +22,6 @@ export const isPasswordValid = (password , confirmPassword) =>{
 }
 
 export const isConfirmedPasswordValid = (password , confirmPassword)=>{
-    console.log(confirmPassword)
-    console.log(password)
     if (password === confirmPassword){
         return true
     }else{

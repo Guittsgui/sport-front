@@ -16,9 +16,11 @@ const Register = () => {
 
     function handleSubmitForm(event){
         event.preventDefault()   
-        console.log(password)
-        console.log(erros)
-        console.log(confirmPassword)
+        if( password !== confirmPassword){
+            alert('Senhas incompatíveis')
+            return
+        }
+        
     }
 
     function handleChangeName(event){
@@ -35,7 +37,7 @@ const Register = () => {
     function handleChangeEmail(event){
         setEmail(event.target.value)
         if(!isEmailValid(event.target.value)){
-            if(!erros.some((err) => giterr.field === 'email')){
+            if(!erros.some((err) => err.field === 'email')){
                 setErros((prev) => [...prev, {field: 'email', msg: 'Informe um Email válido.'}])
             }
         }else{
@@ -52,18 +54,6 @@ const Register = () => {
         }else{
             setErros((prev) => prev.filter((err) => err.field !== 'password')) 
         } 
-    }
-
-    function handleChangeConfirmPassword(event){
-        setConfirmPassword(event.target.value)
-
-        if(!isConfirmedPasswordValid(password, event.target.value)){
-            if(!erros.some((err) => err.field === 'confirmPassword')){
-                setErros((prev) => [...prev, {field: 'confirmPassword', msg: 'Senhas diferentes.'}])
-            }else{
-                setErros((prev) => prev.filter((err) => err.field !== 'confirmPassword'))
-            }
-        }
     }
 
     return <S.Container>
@@ -94,11 +84,11 @@ const Register = () => {
                 <Input type='password' 
                 placeholder='Repita a sua Senha *'
                 value={confirmPassword}
-                onChange={handleChangeConfirmPassword}/>
+                onChange={(e)=> setConfirmPassword(e.target.value)}/>
             </FormGroup>        
 
             <Button onClick={handleSubmitForm} 
-            disabled={!name || !email || !password || !confirmPassword }> 
+            disabled={ !name || !email || !password || !confirmPassword || erros.length !== 0}> 
                 Cadastrar 
             </Button>
             <Link to="/login"> Já é cadastrado? Clique Aqui para Logar</Link>
