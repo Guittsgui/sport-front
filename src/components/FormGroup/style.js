@@ -11,4 +11,13 @@ export const Container = styled.div`
         letter-spacing: 1px;
         font-size: 12px;
     }
+
+    input{
+        border-color: ${({error}) => error ? 'red' : 'none'};
+      
+        &:focus{
+            border-color: ${({error}) => error ? 'red' : 'none'};
+            color:${({error}) => error ? 'red' : 'black'};
+        }
+    }
 `;

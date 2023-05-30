@@ -56,9 +56,14 @@ const Register = () => {
         } 
     }
 
+    function getErroMessageByFieldName(fieldName){
+        return erros.find((err)=> err.field === fieldName)?.msg
+    }
+
+
     return <S.Container>
         <FormContainer title="Register">
-            <FormGroup>
+            <FormGroup error={getErroMessageByFieldName('name')}>
                 <Input type='text' 
                 autoFocus
                 placeholder='Insira o seu Nome Completo *'
@@ -66,14 +71,14 @@ const Register = () => {
                 onChange={handleChangeName}/>
             </FormGroup>
 
-            <FormGroup >
+            <FormGroup error={getErroMessageByFieldName('email')}>
                 <Input type='email' 
                 placeholder='Insira o seu Email *'
                 value={email}
                 onChange={handleChangeEmail}/>
             </FormGroup>
         
-            <FormGroup>
+            <FormGroup error={getErroMessageByFieldName('password')}>
                 <Input type='password' 
                 placeholder='Insira a sua Senha *'
                 value={password}
