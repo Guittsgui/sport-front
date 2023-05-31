@@ -13,7 +13,7 @@ const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const [error, setError] = useState(false)
+    const [error, setError] = useState()
 
     async function handleSubmitForm(event){
         event.preventDefault()
@@ -24,6 +24,9 @@ const Login = () => {
             password: password
         }
         const json = await api.verifyUserLogin(loginData)
+        if(json.msg){
+            setError(json.msg)
+        }
           
     }
 
@@ -55,7 +58,7 @@ const Login = () => {
                 onChange={handlePasswordChange}/>
             </FormGroup>
 
-            {error && <p className='danger'> Login ou Senha Inválidos. </p>}
+            {error && <p className='danger'> {error} </p>}
 
             <Button onClick={handleSubmitForm}
             disabled={!password || !isEmailValid(email)}>

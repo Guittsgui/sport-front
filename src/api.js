@@ -24,7 +24,6 @@ export const api = {
             body: JSON.stringify(loginData)
         })
         const json = await response.json()
-        console.log(json)
         return json
     }
 
