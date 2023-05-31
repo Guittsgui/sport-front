@@ -8,22 +8,23 @@ export const AuthProvider = ({children}) =>{
 
     async function signIn(loginData){
         const data = await api.verifyUserLogin(loginData)
-        if(data.user && data.token){
-            setUser(data.user)
-            return true 
+        const {msg, hasUser, token} = data
+        
+        if(hasUser && token){
+            setUser(hasUser)
+            return msg
+        }else{
+            return msg
         }
-        return false
     }
 
-
-    function signOut(){
-        //callNaApiPraDestruir.
+    async function signOut(){
         setUser(null)
     }
 
 
     return(
-        <AuthContext.Provider>
+        <AuthContext.Provider value={{user, signIn, signOut}}>
             {children}
         </AuthContext.Provider>
     )
