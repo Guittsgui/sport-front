@@ -2,8 +2,7 @@ const urlBase = 'http://localhost:4000'
 
 export const api = {
 
-    addNewUser: async (user) => {
-        
+    addNewUser: async (user) => {     
         const response = await fetch(`${urlBase}/user`, {
             method: 'POST',
             headers: {
@@ -15,6 +14,7 @@ export const api = {
         return {msg: msg, status: response.status}
     },
 
+
     verifyUserLogin: async (loginData) =>{
         const response = await fetch(`${urlBase}/login`, {
             method: 'POST',
@@ -24,6 +24,7 @@ export const api = {
             body: JSON.stringify(loginData)
         })
         const json = await response.json()
+        console.log(json.token)
         return json
     }
 

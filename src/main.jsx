@@ -7,6 +7,9 @@ import Login from './routes/PublicRoutes/Login'
 import Register from './routes/PublicRoutes/Register'
 import Home from './routes/PublicRoutes/Home'
 import ErrorPage from './routes/ErrorPage'
+import PHome from './routes/PrivateRoutes/PHome'
+import { AuthProvider } from './contexts/Auth/AuthProvider'
+import { RequireAuth } from './contexts/Auth/RequireAuth'
 
 const router = createBrowserRouter([
   {
@@ -25,15 +28,20 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register/>
+      },
+      {
+        path: '/home',
+        element: <RequireAuth> <PHome/> </RequireAuth>
       }
     ]
-
   }
 
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

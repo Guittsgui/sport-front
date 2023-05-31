@@ -7,6 +7,7 @@ import { useState } from 'react'
 import FormGroup from './../../../components/FormGroup'
 import { isEmailValid } from '../../../utils/validateFields'
 import { api } from '../../../api'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
@@ -14,6 +15,7 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [error, setError] = useState()
+    const navigate = useNavigate()
 
     async function handleSubmitForm(event){
         event.preventDefault()
@@ -23,11 +25,14 @@ const Login = () => {
             email: email,
             password: password
         }
+
+        
         const json = await api.verifyUserLogin(loginData)
-        if(json.msg){
+        if(json.msg === 'OK'){
+            navigate('/home')
+        }else{
             setError(json.msg)
-        }
-          
+        }      
     }
 
     function handleEmailChange(event){
