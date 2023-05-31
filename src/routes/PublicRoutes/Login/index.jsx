@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import { useState } from 'react'
 import FormGroup from './../../../components/FormGroup'
 import { isEmailValid } from '../../../utils/validateFields'
+import { api } from '../../../api'
 
 const Login = () => {
 
@@ -14,15 +15,16 @@ const Login = () => {
     const [password,setPassword] = useState('')
     const [error, setError] = useState(false)
 
-    function handleSubmitForm(event){
+    async function handleSubmitForm(event){
         event.preventDefault()
         setEmail('')
         setPassword('')
-        if( email === 'a' && password === 'a'){
-            alert('logou')
-        }else{
-            setError(true)
-        }     
+        const loginData = {
+            email: email,
+            password: password
+        }
+        const json = await api.verifyUserLogin(loginData)
+          
     }
 
     function handleEmailChange(event){

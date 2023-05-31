@@ -17,6 +17,8 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [erros, setErros] = useState([])
+    const [apiResponseStatus, setApiResponseStatus] = useState()
+    const [apiResponseMsg, setApiResponseMsg] = useState()
 
     async function handleSubmitForm(event){
         event.preventDefault() 
@@ -31,9 +33,9 @@ const Register = () => {
             email: email,
             password: password
         }
-        const json = await api.addNewUser(newUser)
-        console.log(json)
-        
+        const response = await api.addNewUser(newUser)
+        setApiResponseStatus(response.status)
+        setApiResponseMsg(response.msg)
     }
 
     function handleChangeName(event){
@@ -76,41 +78,55 @@ const Register = () => {
 
     return <S.Container>
         <FormContainer title="Register">
-            <FormGroup error={getErroMessageByFieldName('name')}>
-                <Input type='text' 
-                autoFocus
-                placeholder='Insira o seu Nome Completo *'
-                value={name}
-                onChange={handleChangeName}/>
-            </FormGroup>
-
-            <FormGroup error={getErroMessageByFieldName('email')}>
-                <Input type='email' 
-                placeholder='Insira o seu Email *'
-                value={email}
-                onChange={handleChangeEmail}/>
-            </FormGroup>
+           {apiResponseStatus !== 202 &&
+                <>
+                    <FormGroup error={getErroMessageByFieldName('name')}>
+                            <Input type='text' 
+                            autoFocus
+                            placeholder='Insira o seu Nome Completo *'
+                            value={name}
+                            onChange={handleChangeName}/>
+                    </FormGroup>
         
-            <FormGroup error={getErroMessageByFieldName('password')}>
-                <Input type='password' 
-                placeholder='Insira a sua Senha *'
-                value={password}
-                onChange={handleChangePassword}/>
-            </FormGroup>
-
-            <FormGroup >
-                <Input type='password' 
-                placeholder='Repita a sua Senha *'
-                value={confirmPassword}
-                onChange={(e)=> setConfirmPassword(e.target.value)}/>
-            </FormGroup>        
-
-            <Button onClick={handleSubmitForm} 
-            disabled={ !name || !email || !password || !confirmPassword || erros.length !== 0}> 
-                Cadastrar 
-            </Button>
-            <Link to="/login"> Já é cadastrado? Clique Aqui para Logar</Link>
-
+                    <FormGroup error={getErroMessageByFieldName('email')}>
+                            <Input type='email' 
+                            placeholder='Insira o seu Email *'
+                            value={email}
+                            onChange={handleChangeEmail}/>
+                    </FormGroup>
+                    
+                    <FormGroup error={getErroMessageByFieldName('password')}>
+                            <Input type='password' 
+                            placeholder='Insira a sua Senha *'
+                            value={password}
+                            onChange={handleChangePassword}/>
+                    </FormGroup>
+        
+                    <FormGroup >
+                            <Input type='password' 
+                            placeholder='Repita a sua Senha *'
+                            value={confirmPassword}
+                            onChange={(e)=> setConfirmPassword(e.target.value)}/>
+                    </FormGroup> 
+        
+                    {apiResponseStatus ===400 &&
+                         <span className='errorApiMsg'> 
+                            {apiResponseMsg}
+                        </span> }      
+        
+                    <Button onClick={handleSubmitForm} 
+                        disabled={ !name || !email || !password || !confirmPassword || erros.length !== 0}> 
+                            Cadastrar 
+                    </Button>
+                    <Link to="/login"> Já é cadastrado? Clique Aqui para Logar</Link>
+            </>          
+           } 
+          {apiResponseStatus === 202 &&
+            <>
+                <h2 className='acceptApiMsg'> {apiResponseMsg} </h2>
+                <Link className='linkAccept' to="/login"> Click to Login </Link>
+            </>
+          }
         </FormContainer>
     </S.Container>
 }

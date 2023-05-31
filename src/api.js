@@ -11,9 +11,22 @@ export const api = {
             },
             body: JSON.stringify(user)
         })
-        const json = await response.json();
-        return json;
+        const {msg} = await response.json();
+        return {msg: msg, status: response.status}
     },
+
+    verifyUserLogin: async (loginData) =>{
+        const response = await fetch(`${urlBase}/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(loginData)
+        })
+        const json = await response.json()
+        console.log(json)
+        return json
+    }
 
 
 
