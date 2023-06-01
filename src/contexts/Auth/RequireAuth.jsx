@@ -5,7 +5,7 @@ import Login from "../../routes/PublicRoutes/Login";
 export const RequireAuth = ({children}) => {
      
    const auth = useContext(AuthContext)
-    
+   
    if(!auth.user){
        return <Login/>
    }

@@ -9,13 +9,10 @@ export const AuthProvider = ({children}) =>{
     async function signIn(loginData){
         const data = await api.verifyUserLogin(loginData)
         const {msg, hasUser, token} = data
-        
         if(hasUser && token){
             setUser(hasUser)
-            return msg
-        }else{
-            return msg
         }
+        return msg
     }
 
     async function signOut(){
