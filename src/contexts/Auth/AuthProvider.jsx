@@ -11,29 +11,15 @@ export const AuthProvider = ({children}) =>{
         const validateToken= async() => {
             const storageData = localStorage.getItem('authToken')
             if(!storageData){
-                alert('nao tem')
                 return
             }
             const {user} = await api.verifyToken(storageData)
             setUser(user)
         }
+
         validateToken()
     },[])
-    /*
-    useEffect(()=>{
-        const validateToken = async ()=>{
-            const storageData = localStorage.getItem('authToken')
-            if(storageData){
-                const data = await api.verifyToken(storageData)
 
-                if(data.user){
-                    setUser(data.user)
-                }
-            }
-        }
-        validateToken();
-    },[])
-    */
 
     async function signIn(loginData){
         const data = await api.verifyUserLogin(loginData)
