@@ -7,8 +7,8 @@ const NavBar = () => {
 
     const auth = useContext(AuthContext)
 
-    function handleLogout(){
-        auth.signOut()
+    async function handleLogout(){
+       await auth.signOut()
     }
 
     return <S.Container>

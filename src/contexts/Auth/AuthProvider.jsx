@@ -7,6 +7,20 @@ export const AuthProvider = ({children}) =>{
     const [user,setUser] = useState(null)
 
     useEffect(()=>{
+
+        const validateToken= async() => {
+            const storageData = localStorage.getItem('authToken')
+            if(!storageData){
+                alert('nao tem')
+                return
+            }
+            const {user} = await api.verifyToken(storageData)
+            setUser(user)
+        }
+        validateToken()
+    },[])
+    /*
+    useEffect(()=>{
         const validateToken = async ()=>{
             const storageData = localStorage.getItem('authToken')
             if(storageData){
@@ -19,6 +33,7 @@ export const AuthProvider = ({children}) =>{
         }
         validateToken();
     },[])
+    */
 
     async function signIn(loginData){
         const data = await api.verifyUserLogin(loginData)
@@ -26,6 +41,7 @@ export const AuthProvider = ({children}) =>{
         if(hasUser && token){
             setUser(hasUser)
             setToken(token)
+            console.log(token)
         }
         return msg
     }
@@ -37,7 +53,6 @@ export const AuthProvider = ({children}) =>{
 
     function setToken(token){
         localStorage.setItem('authToken', token)
-
     }
 
     return(

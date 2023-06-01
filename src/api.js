@@ -28,12 +28,12 @@ export const api = {
     },
 
     verifyToken: async (token) => {
-        const response = await fetch(`${urlBase}/validate`,{
-            method: 'POST',
+        const response = await fetch(`${urlBase}/verify`,{
+            method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(token)
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${token}`
+            }
         })
         const json = await response.json()
         return json
