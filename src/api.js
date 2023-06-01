@@ -25,6 +25,18 @@ export const api = {
         })
         const json = await response.json()
         return json
+    },
+
+    verifyToken: async (token) => {
+        const response = await fetch(`${urlBase}/validate`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(token)
+        })
+        const json = await response.json()
+        return json
     }
 
 
