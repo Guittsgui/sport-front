@@ -1,5 +1,8 @@
 const urlBase = 'http://localhost:4000'
 
+const token = localStorage.getItem('authToken')
+
+
 export const api = {
 
     addNewUser: async (user) => {     
@@ -43,7 +46,8 @@ export const api = {
         const response = await fetch(`${urlBase}/changepassword`,{
             method: 'POST',
             headers:{
-                'Content-Type': 'application/json'              
+                'Content-Type': 'application/json', 
+                'authorization': `Bearer ${token}`              
             },
             body: JSON.stringify(password, userId , newPassword )
         })
