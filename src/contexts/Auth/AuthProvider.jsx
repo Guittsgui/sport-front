@@ -27,7 +27,6 @@ export const AuthProvider = ({children}) =>{
         if(hasUser && token){
             setUser(hasUser)
             setToken(token)
-            console.log(token)
         }
         return msg
     }

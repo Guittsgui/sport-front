@@ -10,6 +10,8 @@ import ErrorPage from './routes/ErrorPage'
 import PHome from './routes/PrivateRoutes/PHome'
 import { AuthProvider } from './contexts/Auth/AuthProvider'
 import { RequireAuth } from './contexts/Auth/RequireAuth'
+import ChangePassword from './routes/PrivateRoutes/ChangePassword'
+
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <RequireAuth> <PHome/> </RequireAuth>
+      },
+      {
+        path: '/edituser',
+        element: <RequireAuth> <ChangePassword/> </RequireAuth>
       }
     ]
   }

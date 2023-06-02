@@ -12,7 +12,7 @@ export const isNameValid = (name)=>{
     }
 }
 
-export const isPasswordValid = (password , confirmPassword) =>{
+export const isPasswordValid = (password ) =>{
     const passwordSplited = password.split(' ')
     if(passwordSplited.length > 1 ||password.length < 8){
         return false

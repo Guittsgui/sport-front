@@ -37,6 +37,18 @@ export const api = {
         })
         const json = await response.json()
         return json
+    },
+
+    changeUserPassword: async (password, userId, newPassword) => {
+        const response = await fetch(`${urlBase}/changepassword`,{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'              
+            },
+            body: JSON.stringify(password, userId , newPassword )
+        })
+        const json = await response.json()
+        return
     }
 
 
