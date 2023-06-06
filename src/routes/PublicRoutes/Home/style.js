@@ -100,8 +100,6 @@ export const FaqContainer = styled.div`
     h1{
         color: #384e92;
         margin: 30px;
-        border-bottom: 1px solid #384e92;
-        padding-bottom: 10px;
     }
 `;
 
@@ -114,7 +112,7 @@ export const FourthBanner = styled.div`
     gap: 20px;
 
     h1{
-        color: #2d3c69 ;
+        color: #384e92;
     }
     .SlideContainer{
         display: flex;
@@ -135,4 +133,16 @@ export const FourthBanner = styled.div`
             }
         }
     }
+
+    .navImages{
+        display: flex;
+        gap: 10px;
+        button{
+            height: 10px;
+            width: 10px;
+            background-color: #bcc3ff;
+            border-radius: 50%;
+        }
+    }
+
 `;

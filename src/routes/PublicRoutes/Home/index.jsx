@@ -12,13 +12,19 @@ const Home = () => {
     const [currentState, setCurrentState] = useState(0)
 
     const bgStyle = {
-        //backgroundImage: `"https://www.mundotri.com.br/wp-content/uploads/2022/10/Banner-TREK-site.jpg"`,
         backgroundImage: `url(${imagesCarroussel[currentState].url})`,
         backgroundSize: `cover`,
+        backgroundPosition: `center`,
         height: "400px",
-        width: "800px",
+        width: "900px",
         borderRadius: "20px",
-        boxShadow: "2px 2px 2px #00000075"
+        boxShadow: "2px 2px 2px #00000075", 
+        display: "flex",
+        justifyContent: "center",
+        alignItems: 'center',
+        color: 'white',
+        textShadow: '2px 2px 2px black',
+        fontSize: '30px'
     }
 
     function handleNextSlide(){      
@@ -35,6 +41,10 @@ const Home = () => {
             return
         }
         setCurrentState((prev) => prev -1)
+    }
+
+    function handleChangeSlideByMenu(index){
+        setCurrentState(index)
     }
 
 
@@ -66,16 +76,21 @@ const Home = () => {
                 <FaqContainer key={question.id} question={question}/>
             ))}
         </S.FaqContainer>
-        <S.FourthBanner>
-                <h1> Todos seus Esportes Aqui! </h1>
+        <S.FourthBanner> 
+                <h1> Nossos Esportes: </h1>            
                 <div className='SlideContainer'>
                     <button onClick={handlePrevSlide}> 
                         <AiOutlineArrowLeft size={30}/>
                     </button>
-                    <div style={bgStyle}></div>
+                    <div style={bgStyle}> <h2> {imagesCarroussel[currentState].title} </h2></div>
                     <button onClick={handleNextSlide}> 
                         <AiOutlineArrowRight size={30}/>
                     </button>
+                </div>
+                <div className="navImages">
+                    {imagesCarroussel.map((item, index) => (
+                        <button key={index} onClick={() => (handleChangeSlideByMenu(index))}/>
+                    ))}
                 </div>
         </S.FourthBanner>
     </S.Container>

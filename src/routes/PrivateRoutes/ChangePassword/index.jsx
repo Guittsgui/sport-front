@@ -5,6 +5,7 @@ import FormGroup from '../../../components/FormGroup'
 import { useState } from 'react'
 import { isPasswordValid } from '../../../utils/validateFields'
 
+
 import * as S from './style'
 import { Link } from 'react-router-dom'
 
@@ -23,12 +24,14 @@ export const ChangePassword = () =>{
         }
         if(!isPasswordValid(newPassword)){
             setError('Mín 08 Characteres | Sem Espaço')
+            return
         }
         if(newPassword !== confirmNewPassword){
             setError('Novas Senhas Incompatíveis')
             return
         }
-        //VALIDAR ESPACO E LENGHT.
+        
+        
 
         
 

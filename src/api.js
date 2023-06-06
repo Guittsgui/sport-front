@@ -49,7 +49,7 @@ export const api = {
                 'Content-Type': 'application/json', 
                 'authorization': `Bearer ${token}`              
             },
-            body: JSON.stringify(password, userId , newPassword )
+            body: JSON.stringify(newPassword )
         })
         const json = await response.json()
         return
