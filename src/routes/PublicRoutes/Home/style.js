@@ -104,3 +104,35 @@ export const FaqContainer = styled.div`
         padding-bottom: 10px;
     }
 `;
+
+export const FourthBanner = styled.div`
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    h1{
+        color: #2d3c69 ;
+    }
+    .SlideContainer{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        button{
+            color: white;
+            padding: 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #d8dafa;
+            transition: .5s;
+            &:hover{
+                background-color: #e6e8ff;
+            }
+        }
+    }
+`;

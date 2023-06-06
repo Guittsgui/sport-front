@@ -1,11 +1,42 @@
 import * as S from './style'
 import PlansCotainer from './../../../components/PlansContainer'
-import {Button} from './../../../components/button'
 import FaqContainer from '../../../components/FaqContainer'
 import { faqQuestionsList } from '../../../utils/faqQuestions'
 import * as plans from '../../../utils/pricePlans'
+import { imagesCarroussel } from '../../../utils/imagesCarroussel'
+import {AiOutlineArrowLeft,AiOutlineArrowRight} from 'react-icons/ai'
+import { useState } from 'react'
 
 const Home = () => {
+    
+    const [currentState, setCurrentState] = useState(0)
+
+    const bgStyle = {
+        //backgroundImage: `"https://www.mundotri.com.br/wp-content/uploads/2022/10/Banner-TREK-site.jpg"`,
+        backgroundImage: `url(${imagesCarroussel[currentState].url})`,
+        backgroundSize: `cover`,
+        height: "400px",
+        width: "800px",
+        borderRadius: "20px",
+        boxShadow: "2px 2px 2px #00000075"
+    }
+
+    function handleNextSlide(){      
+        if(currentState < imagesCarroussel.length -1 ){
+            setCurrentState((prev) => prev + 1)
+            return
+        }
+        setCurrentState(0)
+    }
+
+    function handlePrevSlide(){
+        if(currentState === 0 ){
+            setCurrentState(imagesCarroussel.length -1)
+            return
+        }
+        setCurrentState((prev) => prev -1)
+    }
+
 
     return <S.Container>
         <S.Banner/>
@@ -35,6 +66,18 @@ const Home = () => {
                 <FaqContainer key={question.id} question={question}/>
             ))}
         </S.FaqContainer>
+        <S.FourthBanner>
+                <h1> Todos seus Esportes Aqui! </h1>
+                <div className='SlideContainer'>
+                    <button onClick={handlePrevSlide}> 
+                        <AiOutlineArrowLeft size={30}/>
+                    </button>
+                    <div style={bgStyle}></div>
+                    <button onClick={handleNextSlide}> 
+                        <AiOutlineArrowRight size={30}/>
+                    </button>
+                </div>
+        </S.FourthBanner>
     </S.Container>
 }
 
